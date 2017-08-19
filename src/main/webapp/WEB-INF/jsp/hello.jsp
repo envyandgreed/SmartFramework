@@ -11,6 +11,6 @@
     <title>Title</title>
 </head>
 <body>
-    <h2>当前时间:${currentTime}</h2>
+    <h2>当前时间:${time}</h2>
 </body>
 </html>
