@@ -12,7 +12,7 @@ import java.util.logging.Logger;
  * 用于读取属性
  * Created by sihanwang on 2017/8/19.
  */
-public class PropsUtil {
+public final class PropsUtil {
     public static  final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(PropsUtil.class);
 
     /**

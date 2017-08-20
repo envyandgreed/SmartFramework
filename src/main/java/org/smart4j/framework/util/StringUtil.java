@@ -6,7 +6,7 @@ import org.apache.commons.lang3.StringUtils;
  * 字符串工具操作
  * Created by sihanwang on 2017/8/19.
  */
-public class StringUtil {
+public final class StringUtil {
     /**
      * 判断字符串是否为空
      */

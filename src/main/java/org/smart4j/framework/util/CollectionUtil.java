@@ -10,7 +10,7 @@ import java.util.Map;
  * 集合工具
  * Created by sihanwang on 2017/8/19.
  */
-public class CollectionUtil {
+public final class CollectionUtil {
     /**
      * 判断 Collection 是否为空
      */

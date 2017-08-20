@@ -4,7 +4,7 @@ package org.smart4j.framework.util;
  * 数据转型操作工具类
  * Created by sihanwang on 2017/8/19.
  */
-public class CastUtil {
+public final class CastUtil {
     /**
      * 转为 String 型
      */
