@@ -24,4 +24,11 @@ public final class StringUtil {
         return !isEmpty(str);
     }
 
+
+    /**
+     * 分割固定格式的字符串
+     */
+    public static String[] splitString(String str, String separator) {
+        return StringUtils.splitByWholeSeparator(str, separator);
+    }
 }
