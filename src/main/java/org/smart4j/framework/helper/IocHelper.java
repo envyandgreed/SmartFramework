@@ -10,7 +10,7 @@ import java.util.Collection;
 import java.util.Map;
 
 /**
- * 依赖注入助手类
+ * 依赖注入，设置带有Inject注解的变量
  * Created by sihanwang on 2017/8/21.
  */
 public final class IocHelper {

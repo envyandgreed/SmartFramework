@@ -3,6 +3,7 @@ package org.smart4j.framework.util;
 import org.apache.commons.lang3.ArrayUtils;
 
 /**
+ * 判断数组是否为空
  * Created by sihanwang on 2017/8/21.
  */
 public final class ArrayUtil {

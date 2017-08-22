@@ -16,7 +16,7 @@ import java.util.jar.JarFile;
 
 
 /**
- * 类操作工具类
+ * 获取包下的所有类并添加到set中
  * Created by sihanwang on 2017/8/19.
  */
 public final class ClassUtil {

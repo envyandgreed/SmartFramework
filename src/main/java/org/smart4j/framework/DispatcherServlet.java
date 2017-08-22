@@ -25,9 +25,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * 转发
  * Created by sihanwang on 2017/8/21.
  */
-@WebServlet(urlPatterns = "/*",loadOnStartup = 1)
+@WebServlet(urlPatterns = "/*",loadOnStartup = 0)
 public class DispatcherServlet extends HttpServlet{
 
     @Override

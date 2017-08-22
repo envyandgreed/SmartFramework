@@ -9,7 +9,7 @@ import java.util.Properties;
 import java.util.logging.Logger;
 
 /**
- * 用于读取属性
+ * 用于读取属性文件，获取每个属性的路径、值
  * Created by sihanwang on 2017/8/19.
  */
 public final class PropsUtil {

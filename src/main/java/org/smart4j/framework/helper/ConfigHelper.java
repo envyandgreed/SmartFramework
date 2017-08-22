@@ -5,6 +5,7 @@ import org.smart4j.framework.ConfigConstant;
 import java.util.Properties;
 
 /**
+ * 获取注释文件的属性
  * Created by sihanwang on 2017/8/19.
  */
 public final class ConfigHelper {

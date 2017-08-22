@@ -7,7 +7,7 @@ import java.net.URLDecoder;
 import java.net.URLEncoder;
 
 /**
- * 编解码操作工具类
+ * 编解码操作
  * Created by sihanwang on 2017/8/22.
  */
 public final class CodecUtil {

@@ -9,6 +9,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
+ * 获取所有包中带有service和controller注解的类
  * Created by sihanwang on 2017/8/19.
  */
 public final class ClassHelper {

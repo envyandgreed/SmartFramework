@@ -5,7 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * JSON convert
+ * JSON与普通类转换
  * Created by sihanwang on 2017/8/22.
  */
 public final class JsonUtil {

@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
+ * 将参数中的类实例化
  * Created by sihanwang on 2017/8/21.
  */
 public final class BeanHelper {

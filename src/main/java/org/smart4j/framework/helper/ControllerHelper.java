@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
+ * 获取所有带有Action注解的方法，Action（"put:/customer_edit"），将request和handler存储到ACTION_MAP中
  * Created by sihanwang on 2017/8/21.
  */
 public class ControllerHelper {
