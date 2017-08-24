@@ -1,9 +1,6 @@
 package org.smart4j.framework;
 
-import org.smart4j.framework.helper.BeanHelper;
-import org.smart4j.framework.helper.ClassHelper;
-import org.smart4j.framework.helper.ControllerHelper;
-import org.smart4j.framework.helper.IocHelper;
+import org.smart4j.framework.helper.*;
 import org.smart4j.framework.util.ClassUtil;
 
 /**
@@ -15,6 +12,8 @@ public final class HelperLoader {
         Class<?>[] classList = {
                 //获取所有带有service和controller注解的类
                 ClassHelper.class,
+                //AOP框架
+                AopHelper.class,
                 //实例化类
                 BeanHelper.class,
                 //依赖注入，实例化注解类
