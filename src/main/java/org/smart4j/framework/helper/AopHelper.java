@@ -3,9 +3,11 @@ package org.smart4j.framework.helper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.smart4j.framework.annotation.Aspect;
+import org.smart4j.framework.annotation.Service;
 import org.smart4j.framework.proxy.AspectProxy;
 import org.smart4j.framework.proxy.Proxy;
 import org.smart4j.framework.proxy.ProxyManager;
+import org.smart4j.framework.proxy.TransactionProxy;
 
 import java.lang.annotation.Annotation;
 import java.util.*;
@@ -52,24 +54,52 @@ public final class AopHelper {
         return targetClassSet;
     }
 
+//    /**
+//     * 因为代理类需要扩展AspectProxy类并且带有aspect注解，所以这里获取AspectProxy的所有子类，发现带有Aspect注解的，然后执行createTargetClassSet函数，并返回
+//     * 例子：这里的map就相当于存储了，代理类：@Aspect注解内不是Aspect类的类集合（其实就是@Controller），也就是代理类与目标类的映射
+//     * @return
+//     * @throws Exception
+//     */
+//    private static Map<Class<?>, Set<Class<?>>> createProxyMap() throws Exception {
+//        Map<Class<?>,Set<Class<?>>> proxyMap = new HashMap<Class<?>, Set<Class<?>>>();
+//        //获取所有子类
+//        Set<Class<?>> proxyClassSet = ClassHelper.getClassSetBySuper(AspectProxy.class);
+//        for (Class<?> proxyClass : proxyClassSet){
+//            if (proxyClass.isAnnotationPresent(Aspect.class)){
+//                Aspect aspect = proxyClass.getAnnotation(Aspect.class);
+//                Set<Class<?>> targetClassSet = createTargetClassSet(aspect);
+//                proxyMap.put(proxyClass,targetClassSet);
+//            }
+//        }
+//        return proxyMap;
+//    }
+
     /**
-     * 因为代理类需要扩展AspectProxy类并且带有aspect注解，所以这里获取AspectProxy的所有子类，发现带有Aspect注解的，然后执行createTargetClassSet函数，并返回
-     * 例子：这里的map就相当于存储了，代理类：@Aspect注解内不是Aspect类的类集合（其实就是@Controller），也就是代理类与目标类的映射
+     * 重新修改了createProxyMap方法，添加了两个方法，一个是原来的添加普通切面代理的方法，另一个是添加事物代理
      * @return
      * @throws Exception
      */
     private static Map<Class<?>, Set<Class<?>>> createProxyMap() throws Exception {
-        Map<Class<?>,Set<Class<?>>> proxyMap = new HashMap<Class<?>, Set<Class<?>>>();
-        //获取所有子类
+        Map<Class<?>, Set<Class<?>>> proxyMap = new HashMap<Class<?>, Set<Class<?>>>();
+        addAspectProxy(proxyMap);
+        addTransactionProxy(proxyMap);
+        return proxyMap;
+    }
+
+    private static void addAspectProxy(Map<Class<?>, Set<Class<?>>> proxyMap) throws Exception {
         Set<Class<?>> proxyClassSet = ClassHelper.getClassSetBySuper(AspectProxy.class);
-        for (Class<?> proxyClass : proxyClassSet){
-            if (proxyClass.isAnnotationPresent(Aspect.class)){
+        for (Class<?> proxyClass : proxyClassSet) {
+            if (proxyClass.isAnnotationPresent(Aspect.class)) {
                 Aspect aspect = proxyClass.getAnnotation(Aspect.class);
                 Set<Class<?>> targetClassSet = createTargetClassSet(aspect);
-                proxyMap.put(proxyClass,targetClassSet);
+                proxyMap.put(proxyClass, targetClassSet);
             }
         }
-        return proxyMap;
+    }
+
+    private static void addTransactionProxy(Map<Class<?>, Set<Class<?>>> proxyMap) {
+        Set<Class<?>> serviceClassSet = ClassHelper.getClassSetByAnnotation(Service.class);
+        proxyMap.put(TransactionProxy.class, serviceClassSet);
     }
 
     /**
